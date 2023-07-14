@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using GymClientControl.Application.InputModels.v1.Client;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GymClientControl.Controllers.v1.Client
 {
@@ -13,13 +14,13 @@ namespace GymClientControl.Controllers.v1.Client
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById(int id)
+        public IActionResult GetById(string document)
         {
             return Ok("Metodo ainda nao implementado");
         }
 
-        [HttpPost()]
-        public IActionResult Post(string newClientInputModel)
+        [HttpPost]
+        public IActionResult Post(NewClientInputModel newClientInputModel)
         {
             return Ok("Metodo ainda nao implementado");
         }
