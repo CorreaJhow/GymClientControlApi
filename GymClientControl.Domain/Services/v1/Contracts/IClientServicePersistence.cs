@@ -7,7 +7,7 @@ namespace GymClientControl.Domain.Services.v1.Contracts
     {
         Task<List<Client>> GetAllAsync();
         Task<Client> GetByDocumentAsync(string document);
-        Task<string> RegisterNewClient(NewClientInputModel newClientInputModel);
+        Task<string> RegisterNewClient(Client newClient);
         void UpdateClient(string document, UpdateClientInputModel updateClient);
         void DeleteClient(string document);
         void ActivateClient(string document);

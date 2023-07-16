@@ -1,5 +1,4 @@
-﻿using GymClientControl.Application.InputModels.v1.Client;
-using GymClientControl.Domain.InputModels.v1.Client;
+﻿using GymClientControl.Domain.InputModels.v1.Client;
 using GymClientControl.Domain.Services.v1.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
