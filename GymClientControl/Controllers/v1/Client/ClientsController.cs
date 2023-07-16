@@ -1,4 +1,5 @@
 ﻿using GymClientControl.Application.InputModels.v1.Client;
+using GymClientControl.Domain.Services.v1.Contracts;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GymClientControl.Controllers.v1.Client
@@ -7,22 +8,47 @@ namespace GymClientControl.Controllers.v1.Client
     [Route("api/v1/Clients")]
     public class ClientsController : Controller
     {
-        [HttpGet]
-        public IActionResult GetAll()
+        private readonly IClientService _clientApplicationService;
+        public ClientsController(IClientService clientApplicationService)
         {
-            return Ok();
+            _clientApplicationService = clientApplicationService;
+        }
+         
+        [HttpGet]
+        public async Task<IActionResult> GetAll()
+        {
+            var clients = await _clientApplicationService.GetAllAsync();
+
+            return Ok(clients);
         }
 
-        [HttpGet("{id}")]
-        public IActionResult GetById(string document)
+        [HttpGet("{document}")]
+        public async Task<IActionResult> GetByDocument(string document)
         {
-            return Ok("Metodo ainda nao implementado");
+            var client = await _clientApplicationService.GetByDocumentAsync(document);
+
+            if (client is null)
+                return NotFound($"Client with document: '{document}', not found");
+
+            return Ok(client);
         }
+
 
         [HttpPost]
-        public IActionResult Post(NewClientInputModel newClientInputModel)
+        public async Task<IActionResult> RegisterNewClient([FromBody] NewClientInputModel newClientInputModel)
         {
-            return Ok("Metodo ainda nao implementado");
+            var documentClientRegistered = await _clientApplicationService.RegisterNewClient(newClientInputModel);
+
+            if (documentClientRegistered is null)
+                return BadRequest("Client not registered");
+
+            return CreatedAtAction(nameof(RegisterNewClient), new { documentClientRegistered });
         }
+
+        //HttpDelete 
+
+        //HttpPut
+
+        //HttpGetActivesTrue 
     }
 }

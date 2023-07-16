@@ -1,3 +1,6 @@
+using GymClientControl.Domain.Services.v1.Contracts;
+using GymClientControl.Domain.Services.v1.Implementation;
+using GymClientControl.Infrastructure.ImplementationPersistence.v1.Client;
 
 namespace GymClientControl
 {
@@ -13,6 +16,9 @@ namespace GymClientControl
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            builder.Services.AddScoped<IClientService, ClientService>();
+            builder.Services.AddScoped<IClientServicePersistence, ClientServicePersistence>();
 
             var app = builder.Build();
 
