@@ -15,7 +15,7 @@ namespace GymClientControl
             // Add services to the container.
 
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen(c =>
             {
@@ -27,7 +27,6 @@ namespace GymClientControl
                     Contact = new OpenApiContact
                     {
                         Name = "Jhonatas R Correa",
-                        Email = "jhonatasrcorrea@gmail.com",
                         Url = new Uri("https://www.linkedin.com/in/jhonatas-r-correa/")
                     }
                 });
@@ -35,15 +34,6 @@ namespace GymClientControl
 
             builder.Services.AddScoped<IClientService, ClientService>();
             builder.Services.AddScoped<IClientServicePersistence, ClientServicePersistence>();
-
-            builder.Logging.ClearProviders();
-
-            new LoggerConfiguration()
-                .MinimumLevel.Information()
-                .WriteTo.Console()
-                .CreateLogger();
-
-            builder.Logging.ClearProviders();
 
             var app = builder.Build();
 

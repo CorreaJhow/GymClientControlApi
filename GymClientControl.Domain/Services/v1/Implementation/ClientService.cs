@@ -1,5 +1,4 @@
-﻿using GymClientControl.Application.InputModels.v1.Client;
-using GymClientControl.Domain.Entities.v1.Client;
+﻿using GymClientControl.Domain.Entities.v1.Client;
 using GymClientControl.Domain.InputModels.v1.Client;
 using GymClientControl.Domain.Services.v1.Contracts;
 
@@ -25,13 +24,21 @@ namespace GymClientControl.Domain.Services.v1.Implementation
 
         public async Task<string> RegisterNewClient(NewClientInputModel newClientInputModel)
         {
-            return await _clientServicePersistence.RegisterNewClient(newClientInputModel);
+            var newClient = new Client(newClientInputModel.Name,
+                                       newClientInputModel.DateBirth,
+                                       newClientInputModel.Phone,
+                                       newClientInputModel.Document,
+                                       newClientInputModel.Email,
+                                       newClientInputModel.ContractTime);
+
+            return await _clientServicePersistence.RegisterNewClient(newClient);
         }
 
         public void UpdateClient(string document, UpdateClientInputModel updateClient)
         {
             _clientServicePersistence.UpdateClient(document, updateClient);
         }
+
         public void DeleteClient(string document)
         {
             _clientServicePersistence.DeleteClient(document);

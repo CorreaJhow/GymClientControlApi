@@ -1,6 +1,6 @@
 ﻿using GymClientControl.Domain.Enums.v1;
 
-namespace GymClientControl.Application.InputModels.v1.Client
+namespace GymClientControl.Domain.InputModels.v1.Client
 {
     public class NewClientInputModel
     {

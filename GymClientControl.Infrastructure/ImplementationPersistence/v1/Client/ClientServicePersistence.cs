@@ -1,5 +1,4 @@
 ﻿using Dapper;
-using GymClientControl.Application.InputModels.v1.Client;
 using GymClientControl.Domain.InputModels.v1.Client;
 using GymClientControl.Domain.Services.v1.Contracts;
 using Microsoft.Extensions.Configuration;
@@ -41,15 +40,8 @@ namespace GymClientControl.Infrastructure.ImplementationPersistence.v1.Client
             }
         }
 
-        public async Task<string> RegisterNewClient(NewClientInputModel newClientInputModel)
+        public async Task<string> RegisterNewClient(Domain.Entities.v1.Client.Client newClient)
         {
-            var newClient = new Domain.Entities.v1.Client.Client(newClientInputModel.Name,
-                                       newClientInputModel.DateBirth,
-                                       newClientInputModel.Phone,
-                                       newClientInputModel.Document,
-                                       newClientInputModel.Email,
-                                       newClientInputModel.ContractTime);
-
             var parameters = new
             {
                 newClient.Document,

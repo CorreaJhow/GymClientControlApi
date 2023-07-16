@@ -4,11 +4,12 @@ namespace GymClientControl.Domain.Entities.v1.Client
 {
     public class Client
     {
-        public Client(string name, 
-                      DateTime dateBirth, 
-                      string phone, 
-                      string document, 
-                      string email, 
+        public Client() { }
+        public Client(string name,
+                      DateTime dateBirth,
+                      string phone,
+                      string document,
+                      string email,
                       ContractTime contractTime)
         {
             Name = name;
@@ -21,7 +22,7 @@ namespace GymClientControl.Domain.Entities.v1.Client
             RegistrationDate = DateTime.Now;
         }
 
-        public string Name { get; private set; } 
+        public string Name { get; private set; }
         public DateTime DateBirth { get; private set; }
         public string Phone { get; private set; }
         public string Document { get; private set; }

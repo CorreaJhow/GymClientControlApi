@@ -10,20 +10,14 @@ namespace GymClientControl.Controllers.v1.Client
     public class ClientsController : Controller
     {
         private readonly IClientService _clientApplicationService;
-        private readonly ILogger<ClientsController> _logger;
-        public ClientsController(IClientService clientApplicationService,
-                                 ILogger<ClientsController> logger)
+        public ClientsController(IClientService clientApplicationService)
         {
             _clientApplicationService = clientApplicationService;
-            _logger = logger;
         }
 
         [HttpGet]
-        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> GetAll()
         {
-            _logger.LogInformation($"Method: {nameof(GetAll)} | TimeStamp: {DateTime.Now}");
-
             var clients = await _clientApplicationService.GetAllAsync();
 
             return Ok(clients);
@@ -35,7 +29,7 @@ namespace GymClientControl.Controllers.v1.Client
             var client = await _clientApplicationService.GetByDocumentAsync(document);
 
             if (client is null)
-                return NotFound($"Client with document: '{document}', not found"); 
+                return NotFound($"Client with document: '{document}', not found");
 
             return Ok(client);
         }
@@ -89,7 +83,7 @@ namespace GymClientControl.Controllers.v1.Client
 
             if (deleteClient is null)
                 return NotFound($"Client with document: '{document}', not found");
-            
+
             _clientApplicationService.DeleteClient(document);
 
             return NoContent();
