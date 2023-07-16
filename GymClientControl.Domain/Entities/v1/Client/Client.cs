@@ -4,7 +4,6 @@ namespace GymClientControl.Domain.Entities.v1.Client
 {
     public class Client
     {
-        public Client() { }
         public Client(string name, 
                       DateTime dateBirth, 
                       string phone, 

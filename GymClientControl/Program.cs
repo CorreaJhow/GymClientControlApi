@@ -1,6 +1,8 @@
 using GymClientControl.Domain.Services.v1.Contracts;
 using GymClientControl.Domain.Services.v1.Implementation;
 using GymClientControl.Infrastructure.ImplementationPersistence.v1.Client;
+using Microsoft.OpenApi.Models;
+using Serilog;
 
 namespace GymClientControl
 {
@@ -15,10 +17,33 @@ namespace GymClientControl
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Gym Client Control",
+                    Version = "v1",
+                    Description = "API responsible for controlling and managing gym clients",
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Jhonatas R Correa",
+                        Email = "jhonatasrcorrea@gmail.com",
+                        Url = new Uri("https://www.linkedin.com/in/jhonatas-r-correa/")
+                    }
+                });
+            });
 
             builder.Services.AddScoped<IClientService, ClientService>();
             builder.Services.AddScoped<IClientServicePersistence, ClientServicePersistence>();
+
+            builder.Logging.ClearProviders();
+
+            new LoggerConfiguration()
+                .MinimumLevel.Information()
+                .WriteTo.Console()
+                .CreateLogger();
+
+            builder.Logging.ClearProviders();
 
             var app = builder.Build();
 
