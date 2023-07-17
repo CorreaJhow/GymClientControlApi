@@ -41,3 +41,49 @@ O projeto utiliza as seguintes tecnologias, bibliotecas e padrões:
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue para relatar algum problema ou sugerir melhorias.
 
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+# GymClientControlApi (English) 💻
+
+The GymClientControlApi is an API project developed for client management in a gym. With a connection to a SQL Server database, this API implements basic CRUD operations for efficient client management. It utilizes HTTP and JSON protocols, enabling simple and concise interaction with the application.
+
+## Features 🙌
+
+The API provides the following HTTP methods:
+
+- `HttpGet` - Retrieves all active clients registered in the gym and returns them as a list.
+- `HttpGet/{document}` - Retrieves the client corresponding to the provided document as a parameter.
+- `HttpPost` - Checks if the inserted document already exists in the database. If it doesn't exist, it registers the client with an active membership.
+- `HttpPut("update/{document}")` - Updates the client's registration data, without allowing reactivation of the membership.
+- `HttpPut("activate/{document}")` - Activates the client's membership in the gym.
+- `HttpDelete("{document}")` - Performs a logical deletion of the client, deactivating the membership while preserving the registered data in the database.
+
+## Technologies, Libraries, and Patterns 👨‍💻
+
+The project utilizes the following technologies, libraries, and patterns:
+
+- Language: C# 7.0
+- Framework: .NET
+- Concepts: Layered Architecture and Domain-Driven Design (DDD)
+- Best Practices: Clean Code
+- DTOs: Used for data transfer between application layers
+- Testing: XUnit (testing framework for .NET)
+- Database: SQL Server
+- IDE: Visual Studio 2022
+
+## Setup and Usage 🛠
+
+1. Clone the project repository.
+2. Open the GymClientControlApi.sln solution in your preferred IDE (Visual Studio 2022 is recommended).
+3. Restore project dependencies.
+4. Make sure you have SQL Server and SQL Server Management Studio installed.
+5. Download the database creation script from the GitHub repository, named *Script-Criação-BancoDeDados*.
+	5.a Execute the creation script in your SQL Server Management Studio (SSMS).
+6. Build the project.
+7. Start the application.
+
+## Contribution 🤝
+
+Contributions are welcome! Feel free to open an issue to report any problems or suggest improvements.
