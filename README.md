@@ -1,8 +1,8 @@
-# GymClientControlApi 
+# GymClientControlApi 💻
 
 O GymClientControlApi é um projeto de API desenvolvido para o controle de clientes de uma academia. Com conexão ao banco de dados SQL Server, essa API implementa operações básicas de um CRUD para um gerenciamento eficiente dos clientes. Utilizando protocolos HTTP e JSON, permite a interação com a aplicação de forma simples e sucinta.
 
-## Funcionalidades
+## Funcionalidades 🙌
 
 A API oferece os seguintes métodos HTTP:
 
@@ -13,7 +13,7 @@ A API oferece os seguintes métodos HTTP:
 - `HttpPut("activate/{document}")` - Reativa a matrícula do cliente na academia.
 - `HttpDelete("{document}")` - Realiza a exclusão lógica do cliente, desativando a matrícula, mas mantendo os dados registrados no banco.
 
-## Tecnologias, Bibliotecas e Padrões
+## Tecnologias, Bibliotecas e Padrões 👨‍💻
 
 O projeto utiliza as seguintes tecnologias, bibliotecas e padrões:
 
@@ -26,7 +26,7 @@ O projeto utiliza as seguintes tecnologias, bibliotecas e padrões:
 - Banco de Dados: SQL Server 
 - IDE: Visual Studio 2022
 
-## Configuração e Uso
+## Configuração e Uso 🛠
 
 1. Clone o repositório do projeto.
 2. Abra a solução `GymClientControlApi.sln` em sua IDE de preferencia. (Indico Visual Studio 2022)
@@ -37,7 +37,7 @@ O projeto utiliza as seguintes tecnologias, bibliotecas e padrões:
 6. Compile o projeto.
 7. Inicie a aplicação
 
-## Contribuição
+## Contribuição 🤝
 
 Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue para relatar algum problema ou sugerir melhorias.
 
