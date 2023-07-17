@@ -23,7 +23,7 @@ O projeto utiliza as seguintes tecnologias, bibliotecas e padrões:
 - Práticas: Clean Code
 - DTO's: Utilizados para transferência de dados entre as camadas da aplicação
 - Testes: XUnit (framework de testes para .NET)
-- Banco de Dados: SQL Server 
+- Banco de Dados: SQL Server (Acessando via Dapper)
 - IDE: Visual Studio 2022
 
 ## Configuração e Uso 🛠
@@ -70,7 +70,7 @@ The project utilizes the following technologies, libraries, and patterns:
 - Best Practices: Clean Code
 - DTOs: Used for data transfer between application layers
 - Testing: XUnit (testing framework for .NET)
-- Database: SQL Server
+- Database: SQL Server (Accessing via Dapper)
 - IDE: Visual Studio 2022
 
 ## Setup and Usage 🛠
