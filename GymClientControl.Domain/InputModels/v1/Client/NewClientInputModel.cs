@@ -4,6 +4,7 @@ namespace GymClientControl.Domain.InputModels.v1.Client
 {
     public class NewClientInputModel
     {
+        public NewClientInputModel() { }
         public NewClientInputModel(string name, string document, ContractTime contractTime, DateTime dateBirth, string email, string phone)
         {
             Name = name;

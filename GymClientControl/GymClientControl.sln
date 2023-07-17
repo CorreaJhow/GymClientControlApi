@@ -15,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infrastructure", "4 - Infrastructure", "{F115411D-D986-40D6-9EDA-DFBF1014C432}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5 - Tests", "5 - Tests", "{475051BD-C5F8-40A5-860F-C51557C37FF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GymClientControl.Tests", "..\GymClientControl.Tests\GymClientControl.Tests.csproj", "{A650EE03-E9B4-456F-9E9F-878F5FEA4072}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,10 @@ Global
 		{F5BA1671-73BA-4CE0-890F-474C2DAFA1E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5BA1671-73BA-4CE0-890F-474C2DAFA1E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5BA1671-73BA-4CE0-890F-474C2DAFA1E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A650EE03-E9B4-456F-9E9F-878F5FEA4072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A650EE03-E9B4-456F-9E9F-878F5FEA4072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A650EE03-E9B4-456F-9E9F-878F5FEA4072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A650EE03-E9B4-456F-9E9F-878F5FEA4072}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -41,6 +49,7 @@ Global
 		{FA909692-9B74-49FB-A1F3-2804F21E091C} = {6DDDA9EC-2C28-48D8-A743-729FB9A326DB}
 		{DB9DB5EE-1A54-4407-A64A-C3B3D6C9630A} = {DCCA69B8-70FB-482B-A012-5BC424F59ED5}
 		{F5BA1671-73BA-4CE0-890F-474C2DAFA1E3} = {F115411D-D986-40D6-9EDA-DFBF1014C432}
+		{A650EE03-E9B4-456F-9E9F-878F5FEA4072} = {475051BD-C5F8-40A5-860F-C51557C37FF3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {334AF054-739D-49AE-B7FB-3FB6C04199DE}

@@ -65,7 +65,7 @@ namespace GymClientControl.Infrastructure.ImplementationPersistence.v1.Client
             }
         }
 
-        public void UpdateClient(string document, UpdateClientInputModel updateClient) 
+        public void UpdateClient(string document, UpdateClientInputModel updateClient)
         {
             var parameters = new
             {
@@ -79,16 +79,16 @@ namespace GymClientControl.Infrastructure.ImplementationPersistence.v1.Client
             using (var sqlConnection = new SqlConnection(_connectionString))
             {
                 const string sql = "UPDATE Clients SET Name = @Name, Phone = @Phone, DateBirth = @DateBirth, Email = @Email WHERE Document = @Document";
-                
+
                 sqlConnection.Execute(sql, parameters);
             }
         }
-        public void DeleteClient(string document) 
+        public void DeleteClient(string document)
         {
             var parameters = new { document };
 
             using (var sqlConnection = new SqlConnection(_connectionString))
-            { 
+            {
                 const string sql = "UPDATE Clients SET ActiveSubscription = 0 WHERE Document = @document";
 
                 sqlConnection.ExecuteAsync(sql, parameters);
