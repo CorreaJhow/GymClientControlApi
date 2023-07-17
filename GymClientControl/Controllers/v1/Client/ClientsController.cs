@@ -8,16 +8,16 @@ namespace GymClientControl.Controllers.v1.Client
     [Route("api/v1/Clients")]
     public class ClientsController : Controller
     {
-        private readonly IClientService _clientApplicationService;
-        public ClientsController(IClientService clientApplicationService)
+        private readonly IClientService _clientService;
+        public ClientsController(IClientService clientService)
         {
-            _clientApplicationService = clientApplicationService;
+            _clientService = clientService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var clients = await _clientApplicationService.GetAllAsync();
+            var clients = await _clientService.GetAllAsync();
 
             return Ok(clients);
         }
@@ -25,7 +25,7 @@ namespace GymClientControl.Controllers.v1.Client
         [HttpGet("{document}")]
         public async Task<IActionResult> GetByDocument(string document)
         {
-            var client = await _clientApplicationService.GetByDocumentAsync(document);
+            var client = await _clientService.GetByDocumentAsync(document);
 
             if (client is null)
                 return NotFound($"Client with document: '{document}', not found");
@@ -36,12 +36,12 @@ namespace GymClientControl.Controllers.v1.Client
         [HttpPost]
         public async Task<IActionResult> RegisterNewClient([FromBody] NewClientInputModel newClient)
         {
-            var client = await _clientApplicationService.GetByDocumentAsync(newClient.Document);
+            var client = await _clientService.GetByDocumentAsync(newClient.Document);
 
             if (client is not null)
                 return NotFound($"There is already a customer registered with this document: '{newClient.Document}'");
 
-            var clientRegisteredDocument = await _clientApplicationService.RegisterNewClient(newClient);
+            var clientRegisteredDocument = await _clientService.RegisterNewClient(newClient);
 
             if (clientRegisteredDocument is null)
                 return BadRequest("Client not registered");
@@ -52,12 +52,12 @@ namespace GymClientControl.Controllers.v1.Client
         [HttpPut("activate/{document}")]
         public async Task<IActionResult> ActivateClient(string document)
         {
-            var updateClient = await _clientApplicationService.GetByDocumentAsync(document);
+            var updateClient = await _clientService.GetByDocumentAsync(document);
 
             if (updateClient is null)
                 return NotFound($"Client not found with document: '{document}'");
 
-            _clientApplicationService.ActivateClient(document);
+            _clientService.ActivateClient(document);
 
             return NoContent();
         }
@@ -65,12 +65,12 @@ namespace GymClientControl.Controllers.v1.Client
         [HttpPut("update/{document}")]
         public async Task<IActionResult> UpdateClient(string document, UpdateClientInputModel updateClientModel)
         {
-            var updateClient = await _clientApplicationService.GetByDocumentAsync(document);
+            var updateClient = await _clientService.GetByDocumentAsync(document);
 
             if (updateClient is null)
                 return NotFound($"Client not found with document: '{document}'");
 
-            _clientApplicationService.UpdateClient(document, updateClientModel);
+            _clientService.UpdateClient(document, updateClientModel);
 
             return NoContent();
         }
@@ -78,12 +78,12 @@ namespace GymClientControl.Controllers.v1.Client
         [HttpDelete("{document}")]
         public async Task<IActionResult> DeleteClient(string document)
         {
-            var deleteClient = await _clientApplicationService.GetByDocumentAsync(document);
+            var deleteClient = await _clientService.GetByDocumentAsync(document);
 
             if (deleteClient is null)
                 return NotFound($"Client with document: '{document}', not found");
 
-            _clientApplicationService.DeleteClient(document);
+            _clientService.DeleteClient(document);
 
             return NoContent();
         }
