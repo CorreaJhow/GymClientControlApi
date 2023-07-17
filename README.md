@@ -17,8 +17,8 @@ A API oferece os seguintes métodos HTTP:
 
 O projeto utiliza as seguintes tecnologias, bibliotecas e padrões:
 
-- Linguagem: C# 7.0
-- Framework: .NET
+- Linguagem: C# 
+- Framework: .NET 7.0
 - Conceitos: Arquitetura de Camadas e DDD (Domain-Driven Design)
 - Práticas: Clean Code
 - DTO's: Utilizados para transferência de dados entre as camadas da aplicação
@@ -64,8 +64,8 @@ The API provides the following HTTP methods:
 
 The project utilizes the following technologies, libraries, and patterns:
 
-- Language: C# 7.0
-- Framework: .NET
+- Language: C# 
+- Framework: .NET 7.0
 - Concepts: Layered Architecture and Domain-Driven Design (DDD)
 - Best Practices: Clean Code
 - DTOs: Used for data transfer between application layers
