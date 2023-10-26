@@ -1,4 +1,4 @@
-# GymClientControlApi 💻
+# GymClientControlApi 💻🏋️‍♂️
 
 O GymClientControlApi é um projeto de API desenvolvido para o controle de clientes de uma academia. Com conexão ao banco de dados SQL Server, essa API implementa operações básicas de um CRUD para um gerenciamento eficiente dos clientes. Utilizando protocolos HTTP e JSON, permite a interação com a aplicação de forma simples e sucinta.
 
